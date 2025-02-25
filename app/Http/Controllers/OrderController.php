@@ -77,7 +77,7 @@ class OrderController extends Controller
             $unitPrice = $product->price;
             $totalPrice = $unitPrice * $item['quantity'];
 
-            $orderItem = OrderItem::create([
+            OrderItem::create([
                 'order_id' => $order->id,
                 'product_id' => $product->id,
                 'quantity' => $item['quantity'],
