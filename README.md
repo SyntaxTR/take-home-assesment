@@ -5,10 +5,7 @@ Bu proje, Laravel kullanılarak geliştirilmiş basit bir e-ticaret RESTful API'
 ## İçindekiler
 - [Kurulum](#kurulum)
 - [API Kullanımı](#api-kullanimi)
-- [Çevresel Değişkenler](#çevresel-degiskenler)
-- [Test Çalıştırma](#test-calistirma)
-- [Katkıda Bulunma](#katkida-bulunma)
-- [Lisans](#lisans)
+- [Kaynaklar](#Kaynaklar)
 
 ---
 
@@ -34,6 +31,17 @@ Bu proje, Laravel kullanılarak geliştirilmiş basit bir e-ticaret RESTful API'
    ```sh
    cp .env.example .env
    ```
+   Çevresel Değişkenler:
+   `.env` dosyasında aşağıdaki ayarları güncelleyerek kullanabilirsiniz:
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_database
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ```
+
 4. Veritabanını ve migrasyonları çalıştırın:
    ```sh
    php artisan migrate
@@ -133,27 +141,6 @@ Projede, siparişler belirli şartlara göre indirim uygulamaktadır:
 
 ---
 
-
-## Çevresel Değişkenler
-`.env` dosyasında aşağıdaki ayarları güncelleyerek kullanabilirsiniz:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your_database
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-```
-
----
-
-## Test Çalıştırma
-Testleri çalıştırmak için aşağıdaki komutu kullanabilirsiniz:
-```sh
-php artisan serve
-```
-
----
 
 ## Kaynaklar
 
