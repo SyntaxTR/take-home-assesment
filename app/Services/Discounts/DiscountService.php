@@ -31,7 +31,7 @@ class DiscountService
                 $currentTotal -= $discountAmount;
 
                 $discounts[] = [
-                    'rule' => get_class($rule),
+                    'rule' => $rule->getRuleName(),
                     'discount' => $discountAmount,
                     'subtotal' => $currentTotal
                 ];

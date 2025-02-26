@@ -17,4 +17,9 @@ class CheapestCategoryDiscount implements DiscountInterface
 
         return 0;
     }
+
+    public function getRuleName(): string
+    {
+        return "CHEAPEST_CATEGORY_DISCOUNT";
+    }
 }

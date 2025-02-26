@@ -5,6 +5,8 @@ use App\Models\Order;
 
 class TotalAmountDiscount implements DiscountInterface
 {
+
+
     public function apply(Order $order): float
     {
         $total = $order->items->sum('total');
@@ -14,5 +16,10 @@ class TotalAmountDiscount implements DiscountInterface
         }
 
         return 0;
+    }
+
+    public function getRuleName(): string
+    {
+        return "10_PERCENT_OVER_1000";
     }
 }

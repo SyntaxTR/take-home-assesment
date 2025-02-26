@@ -17,4 +17,9 @@ class CategoryBulkDiscount implements DiscountInterface
 
         return $discount;
     }
+
+    public function getRuleName(): string
+    {
+        return "BUY_5_GET_1";
+    }
 }

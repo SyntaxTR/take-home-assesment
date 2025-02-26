@@ -96,14 +96,14 @@ class OrderController extends Controller
         foreach ($discounts['discounts'] as $discount) {
             OrderDiscount::create([
                 'order_id' => $order->id,
-                'discount_reason' => class_basename($discount['rule']),
+                'discount_reason' => $discount['rule'],
                 'discount_amount' => $discount['discount']
             ]);
         }
 
         $formattedDiscounts = collect($discounts['discounts'])->map(function ($discount) use ($totalAfterDiscount) {
             return [
-                'discountReason' => class_basename($discount['rule']),
+                'discountReason' => $discount['rule'],
                 'discountAmount' => number_format($discount['discount'], 2),
                 'subtotal' => number_format($discount['subtotal'], 2)
             ];
