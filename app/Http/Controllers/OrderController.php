@@ -20,6 +20,7 @@ class OrderController extends Controller
     {
         $orders = Order::with('items', 'discounts')->get();
         $formattedOrders = $orders->map(function ($order) {
+            $currentTotal = $order->items->sum('total');
             return [
                 'id' => $order->id,
                 'customerId' => $order->customer_id,
@@ -32,11 +33,12 @@ class OrderController extends Controller
                     ];
                 }),
                 'total' => number_format($order->items->sum('total'), 2),
-                'discounts' => $order->discounts->map(function ($discount) use ($order) {
+                'discounts' => $order->discounts->map(function ($discount) use (&$currentTotal) {
+                    $currentTotal -= $discount->discount_amount;
                     return [
                         'discountReason' => $discount->discount_reason,
                         'discountAmount' => number_format($discount->discount_amount, 2),
-                        'subtotal' => number_format($order->items->sum('total') - $discount->discount_amount, 2)
+                        'subtotal' => number_format($currentTotal, 2)
                     ];
                 }),
                 'finalTotal' => number_format($order->items->sum('total') - $order->discounts->sum('discount_amount'), 2)

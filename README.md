@@ -119,12 +119,12 @@ Tüm endpointler JSON formatında veri döndürmektedir ve ilgili HTTP metoduna 
             {
                 "discountReason": "BUY_5_GET_1",
                 "discountAmount": "300.00",
-                "subtotal": "3,260.00"
+                "subtotal": "2,904.00"
             },
             {
                 "discountReason": "CHEAPEST_CATEGORY_DISCOUNT",
                 "discountAmount": "6.00",
-                "subtotal": "3,554.00"
+                "subtotal": "3,898.00"
             }
         ],
         "finalTotal": "2,898.00"
