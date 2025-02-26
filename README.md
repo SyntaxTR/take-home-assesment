@@ -74,6 +74,66 @@ Tüm endpointler JSON formatında veri döndürmektedir ve ilgili HTTP metoduna 
 
 ---
 
+## Örnek API Çıktısı
+### GET /api/orders Örnek Yanıtı
+```json
+[
+    {
+        "id": 1,
+        "customerId": 1,
+        "items": [
+            {
+                "productId": 1,
+                "quantity": 7,
+                "unitPrice": "200.00",
+                "total": "1,400.00"
+            },
+            {
+                "productId": 2,
+                "quantity": 7,
+                "unitPrice": "300.00",
+                "total": "2,100.00"
+            },
+            {
+                "productId": 3,
+                "quantity": 2,
+                "unitPrice": "30.00",
+                "total": "60.00"
+            }
+        ],
+        "total": "3,560.00",
+        "discounts": [
+            {
+                "discountReason": "TotalAmountDiscount",
+                "discountAmount": "356.00",
+                "subtotal": "3,204.00"
+            },
+            {
+                "discountReason": "CategoryBulkDiscount",
+                "discountAmount": "300.00",
+                "subtotal": "3,260.00"
+            },
+            {
+                "discountReason": "CheapestCategoryDiscount",
+                "discountAmount": "6.00",
+                "subtotal": "3,554.00"
+            }
+        ],
+        "finalTotal": "2,898.00"
+    }
+]
+```
+
+---
+## İndirim Kuralları
+Projede, siparişler belirli şartlara göre indirim uygulamaktadır:
+- **Toplam 1000 TL ve üzerinde alışveriş yapan bir müşteri**, siparişin tamamından **%10 indirim** kazanır.
+- **2 ID'li kategoriye ait bir üründen 6 adet satın alındığında**, bir tanesi **ücretsiz** olarak verilir.
+- **1 ID'li kategoriden iki veya daha fazla ürün satın alındığında**, en ucuz ürüne **%20 indirim** yapılır.
+
+---
+
+
 ## Çevresel Değişkenler
 `.env` dosyasında aşağıdaki ayarları güncelleyerek kullanabilirsiniz:
 ```env
@@ -95,3 +155,6 @@ php artisan serve
 
 ---
 
+## Kaynaklar
+
+Bu proje geliştirilirken Stack Overflow, ChatGPT ve çeşitli çevrimiçi kaynaklardan faydalanılmıştır.
